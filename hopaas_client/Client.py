@@ -92,7 +92,7 @@ class Client (Configurable):
 
     def get_best_trial(self, study_id: str, trial_id: int) -> int:
         """Query /api/get_best_trial to return the best trial of a given study"""
-        res = requests.get(f"{self.server}/api/get_best_trial?hopaas_trial={study_id}:{trial_id}")
+        res = requests.get(f"{self.server}/api/get_best_trial/{self.token}?hopaas_trial={study_id}:{trial_id}")
         if res.status_code != 200:
             raise HopaasServerError
 
