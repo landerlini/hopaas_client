@@ -54,7 +54,7 @@ class Trial:
     @property
     def properties(self):
         """Read-only version of the properties (here suggestions are parsed, already)"""
-        return deepcopy(self.properties)
+        return deepcopy(self._properties)
 
     @loss.setter
     def loss(self, value: float):
