@@ -96,7 +96,7 @@ class Client (Configurable):
         if res.status_code != 200:
             raise HopaasServerError
 
-        b_study_id, b_trial_id = res.text.split(":")
+        b_study_id, b_trial_id = json.loads(res.text).split(":")
         if study_id != b_study_id:
             raise HopaasServerError
 
