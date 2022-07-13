@@ -84,7 +84,7 @@ class Study:
 
         Note that best trial may be obtained in an independent run, and therefore may not be accessible here
         """
-        return {k: FrozenTrial(self._suid, t.id, t.loss, t.properties) for k, t in self._trials}
+        return {k: FrozenTrial(self._suid, t.id, t.loss, t.properties) for k, t in self._trials.items()}
 
     @contextlib.contextmanager
     def trial(self):
