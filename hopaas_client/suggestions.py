@@ -51,7 +51,7 @@ class LogUniform(Suggestion):
     high: float = 1
 
     def __str__(self):
-        return f"optuna#log_uniform({self.low},{self.high})"
+        return f"optuna#loguniform({self.low},{self.high})"
 
 
 @dataclass(frozen=True)
@@ -59,5 +59,5 @@ class Categorical(Suggestion):
     choices: List[str]
 
     def __str__(self):
-        return f"optuna#log_uniform({','.join(self.choices)})"
+        return f"optuna#categorical({','.join(self.choices)})"
 
