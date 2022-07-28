@@ -88,7 +88,8 @@ class Client (Configurable):
 
         if res.text.lower() == 'true':
             return True
-        return False
+        else:
+            return False
 
     def get_best_trial(self, study_id: str, trial_id: int) -> int:
         """Query /api/get_best_trial to return the best trial of a given study"""
@@ -101,5 +102,3 @@ class Client (Configurable):
             raise HopaasServerError
 
         return int(b_trial_id)
-
-

@@ -141,9 +141,10 @@ class Study:
             yield trial
         finally:
             if trial.loss is not None:
-                self._client.tell(study_id=self._suid,
-                                  trial_id=trial.id,
-                                  loss=float(trial.loss))
+                if not trial.should_prune:
+                    self._client.tell(study_id=self._suid,
+                                      trial_id=trial.id,
+                                      loss=float(trial.loss))
             else:
                 self._client.mark_as_failed(study_id=self._suid,
                                             trial_id=trial.id,
