@@ -2,7 +2,7 @@ from hopaas_client import samplers, pruners
 import random
 import pytest
 
-RANDOM_CODE = random.randint(0,10000)
+RANDOM_CODE = random.randint(0, 10000)
 suggestions = []
 
 
@@ -55,7 +55,9 @@ def suggest_categorical():
     return Categorical(['successful', 'unsuccessful', 'improvable'])
 
 
-################################################################################
+###############################################################################
+
+
 def test_study_instantiation(study):
     from hopaas_client import Study
     assert isinstance(study, Study)
@@ -80,7 +82,6 @@ def test_one_shot(sampler, pruner, suggested, request):
 
     with study.trial() as trial:
         trial.loss = 1.23
-
 
 
 def test_simple_loop(study):
@@ -140,8 +141,3 @@ def test_xsquared():
 
     with Pool(10) as pool:
         pool.map(compute_xsquared, range(25))
-
-
-
-
-

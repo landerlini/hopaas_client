@@ -9,6 +9,7 @@ testables = [
     'ThresholdPruner'
 ]
 
+
 @dataclass(frozen=True)
 class Pruner:
     def asdict(self):
@@ -21,6 +22,7 @@ class Pruner:
 @dataclass(frozen=True)
 class NopPruner(Pruner):
     pass
+
 
 @dataclass(frozen=True)
 class HyperbandPruner(Pruner):

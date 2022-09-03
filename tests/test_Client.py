@@ -8,7 +8,10 @@ def client():
     client = Client()
     return client
 
-################################################################################
+
+###############################################################################
+
+
 def test_client_configurtion(client):
     from hopaas_client import Client
     assert isinstance(client, Client)

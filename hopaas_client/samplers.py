@@ -20,4 +20,3 @@ class TPESampler(Sampler):
     n_startup_trials: int = 10
     n_ei_candidates: int = 24
     consider_magic_clip: bool = True
-
