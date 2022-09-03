@@ -139,6 +139,8 @@ class Study:
 
         try:
             yield trial
+        except (Exception, KeyboardInterrupt):
+            trial.loss = None
         finally:
             if trial.loss is not None:
                 if not trial.should_prune:

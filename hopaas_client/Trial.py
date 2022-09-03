@@ -60,7 +60,7 @@ class Trial:
     def loss(self, value: float):
         """Setter for the loss, used to update the loss computation. Automatically updates the step number."""
         self._step += 1
-        self._loss = float(value)
+        self._loss = float(value) if value is not None else None
 
     @property
     def step(self) -> int:
