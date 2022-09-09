@@ -32,41 +32,41 @@ def suggest_int():
     return Int(0, 10, 2, False)
 
 
-@suggestion
-def suggest_float():
-    from hopaas_client.suggestions import Float
-    return Float(-10., 10.)
-
-
 # @suggestion
 # def suggest_float():
 #     from hopaas_client.suggestions import Float
-#     return Float(-10., 10., None, False)
-
-
-# @suggestion
-# def suggest_float_with_step():
-#     from hopaas_client.suggestions import Float
-#     return Float(-1., 1., 0.1, False)
-
-
-# @suggestion
-# def suggest_float_with_log():
-#     from hopaas_client.suggestions import Float
-#     return Float(1e-3, 1e+3, None, True)
+#     return Float(-10., 10.)
 
 
 @suggestion
-def suggest_discrete_uniform():
+def suggest_float():
     from hopaas_client.suggestions import Float
-    return Float(-1., 1.)
+    return Float(-10., 10., None, False)
 
 
-# FIXME : deprecated in Optuna v3.0.0, use 'suggest_float()' instead
+@suggestion
+def suggest_float_with_step():
+    from hopaas_client.suggestions import Float
+    return Float(-1., 1., 0.1, False)
+
+
+@suggestion
+def suggest_float_with_log():
+    from hopaas_client.suggestions import Float
+    return Float(1e-3, 1e+3, None, True)
+
+
 # @suggestion
 # def suggest_discrete_uniform():
 #     from hopaas_client.suggestions import Float
-#     return Float(-1., 1., 0.1)
+#     return Float(-1., 1.)
+
+
+# FIXME : deprecated in Optuna v3.0.0, use 'suggest_float()' instead
+@suggestion
+def suggest_discrete_uniform():
+    from hopaas_client.suggestions import Float
+    return Float(-1., 1., 0.1)
 
 
 # FIXME : deprecated in Optuna v3.0.0, use 'suggest_float()' instead

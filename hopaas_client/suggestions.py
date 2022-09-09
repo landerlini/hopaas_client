@@ -31,12 +31,12 @@ class Int(Suggestion):
 class Float(Suggestion):
     min: float
     max: float
-    # step: Optional[float] = None
-    # log: bool = False
+    step: Optional[float] = None
+    log: bool = False
 
     def __str__(self):
-        # return f"optuna#float({self.min},{self.max},{self.step},{self.log})"
-        return f"optuna#float({self.min},{self.max})"
+        return f"optuna#float({self.min},{self.max},{self.step},{self.log})"
+        # return f"optuna#float({self.min},{self.max})"
 
 
 # FIXME : deprecated in Optuna v3.0.0, use 'suggest_float()' instead
@@ -44,11 +44,11 @@ class Float(Suggestion):
 class DiscreteUniform(Suggestion):
     low: float
     high: float
-    # q: float
+    q: float
 
     def __str__(self):
-        # return f"optuna#discrete_uniform({self.low},{self.high},{self.q})"
-        return f"optuna#discrete_uniform({self.low},{self.high})"
+        return f"optuna#discrete_uniform({self.low},{self.high},{self.q})"
+        # return f"optuna#discrete_uniform({self.low},{self.high})"
 
 
 # FIXME : deprecated in Optuna v3.0.0, use 'suggest_float()' instead
