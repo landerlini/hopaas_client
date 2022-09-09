@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from dataclasses import dataclass
 
 
@@ -6,6 +6,7 @@ class Suggestion:
     pass
 
 
+# FIXME : deprecated in Optuna v3.0.0, use 'suggest_float()' instead
 @dataclass(frozen=True)
 class Uniform(Suggestion):
     min: float
@@ -30,25 +31,29 @@ class Int(Suggestion):
 class Float(Suggestion):
     min: float
     max: float
+    step: Optional[float] = None
+    log: bool = False
 
     def __str__(self):
-        return f"optuna#float({self.min},{self.max})"
+        return f"optuna#float({self.min},{self.max},{self.step},{self.log})"
 
 
+# FIXME : deprecated in Optuna v3.0.0, use 'suggest_float()' instead
 @dataclass(frozen=True)
 class DiscreteUniform(Suggestion):
     low: float
-    high: float = 1
-    q: bool = False
+    high: float
+    q: float
 
     def __str__(self):
         return f"optuna#discrete_uniform({self.low},{self.high},{self.q})"
 
 
+# FIXME : deprecated in Optuna v3.0.0, use 'suggest_float()' instead
 @dataclass(frozen=True)
 class LogUniform(Suggestion):
     low: float
-    high: float = 1
+    high: float
 
     def __str__(self):
         return f"optuna#loguniform({self.low},{self.high})"
@@ -60,4 +65,3 @@ class Categorical(Suggestion):
 
     def __str__(self):
         return f"optuna#categorical({','.join(self.choices)})"
-
