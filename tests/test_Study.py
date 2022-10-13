@@ -101,7 +101,7 @@ def test_one_shot(sampler, pruner, suggested, request):
     suggested = request.getfixturevalue(suggested)
     from hopaas_client import Study
     study = Study(
-            'TEST::Study::one_shot',
+            'Test::Study::one_shot',
             properties={'x': 1, 'y': suggested},
             sampler=sampler(),
             pruner=pruner() if pruner != pruners.ThresholdPruner else pruner(upper=2)
@@ -149,7 +149,7 @@ def compute_xsquared(_):
     from hopaas_client.samplers import TPESampler
     from hopaas_client.suggestions import Uniform
 
-    study = Study("TEST::Study::xsquared",
+    study = Study("TEST::Study::x_squared",
                   sampler=TPESampler(n_startup_trials=10),
                   properties=dict(
                       x=Uniform(-50, 50),

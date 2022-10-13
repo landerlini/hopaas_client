@@ -1,4 +1,6 @@
 import os.path
+from os import environ
+
 from typing import Union
 from configparser import ConfigParser
 
@@ -6,6 +8,7 @@ from configparser import ConfigParser
 class Configurable:
     def __init__(self, config_filename: Union[str, None] = None, force_reconfig: bool = False):
         self._config_filename = config_filename if config_filename is not None else self.get_default_cfgfile()
+        print (f"Using config file {self._config_filename}")
         self.config = self.load_config(self._config_filename, force_reconfig)
 
     @staticmethod
@@ -20,6 +23,9 @@ class Configurable:
 
     @staticmethod
     def get_default_cfgfile() -> str:
+        if 'HOPAAS_CONFIG_FILE' in environ:
+            return environ['HOPAAS_CONFIG_FILE']
+
         try:
             return os.path.join(os.environ['HOME'], ".hopaasrc")
         except KeyError:
