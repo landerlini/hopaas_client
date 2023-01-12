@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/44908794/212040251-8e059593-1f3a-40b5-914d-1d1db081bc88.png)
+[![DOI](https://zenodo.org/badge/511953143.svg)](https://zenodo.org/badge/latestdoi/511953143)
 
 # Hopaas Python Client: `hopaas_client`
 Hopaas is a service to handle parameter optimization as a service, 
